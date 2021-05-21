@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+#clasp
+.clasprc.json
+.clasp.json
+
+#Environment variable
+global_variable.ts

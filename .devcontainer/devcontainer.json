@@ -1,0 +1,10 @@
+{
+    "name": "gampokeRegularActivityAttendance",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "gampokeraa",
+	"workspaceFolder": "/tmp/workdir",
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+	],
+}

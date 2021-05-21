@@ -1,0 +1,10 @@
+version: "3"
+services:
+  gampokeraa:
+    build: .
+    container_name: "gampokeraa"
+    tty: true
+    working_dir: /tmp/workdir
+    volumes:
+      - ../workspace:/tmp/workdir
+      - ../workspace/.clasprc.json:/root/.clasprc.json

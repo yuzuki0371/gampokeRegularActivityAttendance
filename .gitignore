@@ -106,3 +106,6 @@ dist
 #clasp
 .clasprc.json
 .clasp.json
+
+#Environment variable
+global_variable.ts

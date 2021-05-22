@@ -71,7 +71,7 @@ const createForm_ = (
   statusSheet
     .getRange("A2")
     .setFormula(
-      `=QUERY(IMPORTRANGE("${SHEET_STATUS_ID}","${responseSheet.getName()}!A:G"), "select Col7,Col3,Col4,Col5,Col6 where Col7 is not null order by Col2 label Col7 '名前', Col3 '16:00', Col4 '17:00', Col5 '18:00', Col6 '19:00'",1)`
+      `=QUERY(IMPORTRANGE("${SHEET_RESPONSE_ID}","${responseSheet.getName()}!A:G"), "select Col7,Col3,Col4,Col5,Col6 where Col7 is not null order by Col2 label Col7 '名前', Col3 '16:00', Col4 '17:00', Col5 '18:00', Col6 '19:00'",1)`
     );
   statusSheet.deleteColumns(6, 21);
   statusSheet.setColumnWidths(2, 4, 50);

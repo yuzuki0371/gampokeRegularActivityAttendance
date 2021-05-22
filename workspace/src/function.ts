@@ -111,3 +111,12 @@ const permitTemporary_ = (ssId: string): void => {
     DriveApp.Permission.EDIT;
   driver.setSharing(accessClose, permissonClose);
 };
+
+const sendLine = (text: string): void => {
+  const options = {
+    method: "post",
+    payload: { message: text },
+    headers: { Authorization: `Bearer ${LINE_NOTIFY_TOKEN}` },
+  };
+  UrlFetchApp.fetch("https://notify-api.line.me/api/notify", options);
+};

@@ -112,7 +112,7 @@ const permitTemporary_ = (ssId: string): void => {
   driver.setSharing(accessClose, permissonClose);
 };
 
-const sendLine = (text: string): void => {
+const sendLine_ = (text: string): void => {
   const options = {
     method: "post",
     payload: { message: text },

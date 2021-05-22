@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const hasActivity_ = (
   date: GoogleAppsScript.Base.Date
 ): false | GoogleAppsScript.Calendar.CalendarEvent => {

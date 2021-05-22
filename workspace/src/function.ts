@@ -6,7 +6,7 @@ const hasActivity_ = (
   const options = { search: "定期活動" };
   const events: GoogleAppsScript.Calendar.CalendarEvent[] =
     calendar.getEventsForDay(date, options);
-  if (!events) {
+  if (!events.length) {
     return false;
   } else {
     return events[0];

@@ -120,3 +120,13 @@ const sendLine = (text: string): void => {
   };
   UrlFetchApp.fetch("https://notify-api.line.me/api/notify", options);
 };
+
+const deleteTrigger_ = (functionName: string): void => {
+  const triggers: GoogleAppsScript.Script.Trigger[] =
+    ScriptApp.getScriptTriggers();
+  triggers.forEach((trigger) => {
+    if (trigger.getHandlerFunction() === functionName) {
+      ScriptApp.deleteTrigger(trigger);
+    }
+  });
+};

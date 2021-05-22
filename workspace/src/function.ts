@@ -94,3 +94,20 @@ const createForm_ = (
   };
   return IDs;
 };
+
+const permitTemporary_ = (ssId: string): void => {
+  const driver: GoogleAppsScript.Drive.File = DriveApp.getFileById(ssId);
+
+  const accessOpen: GoogleAppsScript.Drive.Access =
+    DriveApp.Access.ANYONE_WITH_LINK;
+  const permissonOpen: GoogleAppsScript.Drive.Permission =
+    DriveApp.Permission.VIEW;
+  driver.setSharing(accessOpen, permissonOpen);
+
+  SpreadsheetApp.flush();
+
+  const accessClose: GoogleAppsScript.Drive.Access = DriveApp.Access.PRIVATE;
+  const permissonClose: GoogleAppsScript.Drive.Permission =
+    DriveApp.Permission.EDIT;
+  driver.setSharing(accessClose, permissonClose);
+};

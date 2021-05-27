@@ -19,6 +19,10 @@ const setForm = () => {
 
   permitTemporary_(SHEET_MEMBER_LIST_ID);
   permitTemporary_(IDs.response);
+  DriveApp.getFileById(IDs.status).setSharing(
+    DriveApp.Access.PRIVATE,
+    DriveApp.Permission.EDIT
+  );
 
   const message = `【定期活動連絡】
   ${Utilities.formatDate(

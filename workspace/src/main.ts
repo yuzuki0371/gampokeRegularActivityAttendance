@@ -36,4 +36,12 @@ const setForm = () => {
   sendLine_(message);
 
   deleteTrigger_("setForm");
+
+  const day = getDay_(dt);
+  const properties = {
+    [`${day}_FORM`]: IDs.form,
+    [`${day}_SS`]: IDs.status,
+  };
+
+  PropertiesService.getScriptProperties().setProperties(properties);
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const setForm = () => {
-  const dt = new Date();
+const setForm = (): void => {
+  const dt: GoogleAppsScript.Base.Date = new Date();
   dt.setDate(dt.getDate() + 7);
 
   const event: false | GoogleAppsScript.Calendar.CalendarEvent =

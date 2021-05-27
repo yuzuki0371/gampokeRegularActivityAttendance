@@ -131,3 +131,32 @@ const deleteTrigger_ = (functionName: string): void => {
     }
   });
 };
+
+const getDay_ = (
+  date: GoogleAppsScript.Base.Date
+):
+  | "SUNDAY"
+  | "MONDAY"
+  | "TUESDAY"
+  | "WEDNESDAY"
+  | "THURSDAY"
+  | "FRIDAY"
+  | "SATURDAY" => {
+  const day_num: number = date.getDay();
+  switch (day_num) {
+    case 0:
+      return "SUNDAY";
+    case 1:
+      return "MONDAY";
+    case 2:
+      return "TUESDAY";
+    case 3:
+      return "WEDNESDAY";
+    case 4:
+      return "THURSDAY";
+    case 5:
+      return "FRIDAY";
+    default:
+      return "SATURDAY";
+  }
+};

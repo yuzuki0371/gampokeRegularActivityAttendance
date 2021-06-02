@@ -47,7 +47,7 @@ const setForm = (): void => {
 };
 
 const setTrigger = () => {
-  const dt = new Date("2021/6/3");
+  const dt: GoogleAppsScript.Base.Date = new Date();
   dt.setHours(9);
   dt.setMinutes(0);
   ScriptApp.newTrigger("closeForm").timeBased().at(dt).create();

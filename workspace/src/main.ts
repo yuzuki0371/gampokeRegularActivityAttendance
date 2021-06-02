@@ -59,4 +59,13 @@ const closeForm = (): void => {
 
   const form = FormApp.openById(FORM_ID);
   form.setAcceptingResponses(false);
+
+  const ss = SpreadsheetApp.openById(SS_ID);
+  const message = `【定期活動連絡】
+  本日の活動の出席確認の受付を終了しました。
+  【回答状況】
+  ${ss.getUrl()}
+  【業務連絡】
+  担当者は回答状況を確認し、活動参加者を確定してください。`;
+  sendLine_(message);
 };

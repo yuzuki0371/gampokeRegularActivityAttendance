@@ -45,3 +45,15 @@ const setForm = (): void => {
 
   PropertiesService.getScriptProperties().setProperties(properties);
 };
+
+const closeForm = (): void => {
+  const dt = new Date();
+  const day = getDay_(dt);
+  const FORM_ID: string | null =
+    PropertiesService.getScriptProperties().getProperty(`${day}_FORM`);
+  const SS_ID: string | null =
+    PropertiesService.getScriptProperties().getProperty(`${day}_SS`);
+
+  if (FORM_ID === null) return;
+  if (SS_ID === null) return;
+};

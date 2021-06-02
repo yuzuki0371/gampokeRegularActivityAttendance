@@ -45,3 +45,38 @@ const setForm = (): void => {
 
   PropertiesService.getScriptProperties().setProperties(properties);
 };
+
+const closeForm = (): void => {
+  const dt: GoogleAppsScript.Base.Date = new Date();
+  const day:
+    | "SUNDAY"
+    | "MONDAY"
+    | "TUESDAY"
+    | "WEDNESDAY"
+    | "THURSDAY"
+    | "FRIDAY"
+    | "SATURDAY" = getDay_(dt);
+  const FORM_ID: string | null =
+    PropertiesService.getScriptProperties().getProperty(`${day}_FORM`);
+  const SS_ID: string | null =
+    PropertiesService.getScriptProperties().getProperty(`${day}_SS`);
+
+  if (FORM_ID === null) return;
+  if (SS_ID === null) return;
+
+  const form: GoogleAppsScript.Forms.Form = FormApp.openById(FORM_ID);
+  form.setAcceptingResponses(false);
+
+  const ss: GoogleAppsScript.Spreadsheet.Spreadsheet =
+    SpreadsheetApp.openById(SS_ID);
+  const message = `【定期活動連絡】
+  本日の活動の出席確認の受付を終了しました。
+  【回答状況】
+  ${ss.getUrl()}
+  【業務連絡】
+  担当者は回答状況を確認し、活動参加者を確定してください。`;
+  sendLine_(message);
+
+  PropertiesService.getScriptProperties().deleteProperty(`${day}_FORM`);
+  PropertiesService.getScriptProperties().deleteProperty(`${day}_SS`);
+};

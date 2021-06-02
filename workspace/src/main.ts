@@ -20,8 +20,8 @@ const setForm = (): void => {
   permitTemporary_(SHEET_MEMBER_LIST_ID);
   permitTemporary_(IDs.response);
   DriveApp.getFileById(IDs.status).setSharing(
-    DriveApp.Access.PRIVATE,
-    DriveApp.Permission.EDIT
+    DriveApp.Access.ANYONE_WITH_LINK,
+    DriveApp.Permission.VIEW
   );
 
   const message = `【定期活動連絡】

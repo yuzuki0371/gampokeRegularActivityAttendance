@@ -124,7 +124,7 @@ const sendLine_ = (text: string): void => {
 
 const deleteTrigger_ = (functionName: string): void => {
   const triggers: GoogleAppsScript.Script.Trigger[] =
-    ScriptApp.getScriptTriggers();
+    ScriptApp.getProjectTriggers();
   triggers.forEach((trigger) => {
     if (trigger.getHandlerFunction() === functionName) {
       ScriptApp.deleteTrigger(trigger);

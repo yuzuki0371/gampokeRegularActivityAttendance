@@ -45,3 +45,13 @@ const setForm = (): void => {
 
   PropertiesService.getScriptProperties().setProperties(properties);
 };
+
+const setTrigger = () => {
+  const dt = new Date("2021/6/3");
+  dt.setHours(9);
+  dt.setMinutes(0);
+  ScriptApp.newTrigger("closeForm").timeBased().at(dt).create();
+
+  dt.setMinutes(5);
+  ScriptApp.newTrigger("setForm").timeBased().at(dt).create();
+};

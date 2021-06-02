@@ -68,4 +68,7 @@ const closeForm = (): void => {
   【業務連絡】
   担当者は回答状況を確認し、活動参加者を確定してください。`;
   sendLine_(message);
+
+  PropertiesService.getScriptProperties().deleteProperty(`${day}_FORM`);
+  PropertiesService.getScriptProperties().deleteProperty(`${day}_SS`);
 };

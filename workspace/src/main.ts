@@ -47,8 +47,15 @@ const setForm = (): void => {
 };
 
 const closeForm = (): void => {
-  const dt = new Date();
-  const day = getDay_(dt);
+  const dt: GoogleAppsScript.Base.Date = new Date();
+  const day:
+    | "SUNDAY"
+    | "MONDAY"
+    | "TUESDAY"
+    | "WEDNESDAY"
+    | "THURSDAY"
+    | "FRIDAY"
+    | "SATURDAY" = getDay_(dt);
   const FORM_ID: string | null =
     PropertiesService.getScriptProperties().getProperty(`${day}_FORM`);
   const SS_ID: string | null =
@@ -57,10 +64,11 @@ const closeForm = (): void => {
   if (FORM_ID === null) return;
   if (SS_ID === null) return;
 
-  const form = FormApp.openById(FORM_ID);
+  const form: GoogleAppsScript.Forms.Form = FormApp.openById(FORM_ID);
   form.setAcceptingResponses(false);
 
-  const ss = SpreadsheetApp.openById(SS_ID);
+  const ss: GoogleAppsScript.Spreadsheet.Spreadsheet =
+    SpreadsheetApp.openById(SS_ID);
   const message = `【定期活動連絡】
   本日の活動の出席確認の受付を終了しました。
   【回答状況】

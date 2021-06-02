@@ -56,4 +56,7 @@ const closeForm = (): void => {
 
   if (FORM_ID === null) return;
   if (SS_ID === null) return;
+
+  const form = FormApp.openById(FORM_ID);
+  form.setAcceptingResponses(false);
 };

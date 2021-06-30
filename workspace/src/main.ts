@@ -81,16 +81,6 @@ const closeForm = (): void => {
   PropertiesService.getScriptProperties().deleteProperty(`${day}_SS`);
 };
 
-const setTrigger = (): void => {
-  const dt: GoogleAppsScript.Base.Date = new Date();
-  dt.setHours(9);
-  dt.setMinutes(0);
-  ScriptApp.newTrigger("closeForm").timeBased().at(dt).create();
-
-  dt.setMinutes(5);
-  ScriptApp.newTrigger("setForm").timeBased().at(dt).create();
-};
-
 const main = (): void => {
   closeForm();
   setForm();

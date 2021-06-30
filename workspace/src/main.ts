@@ -90,3 +90,8 @@ const setTrigger = (): void => {
   dt.setMinutes(5);
   ScriptApp.newTrigger("setForm").timeBased().at(dt).create();
 };
+
+const main = (): void => {
+  closeForm();
+  setForm();
+}
